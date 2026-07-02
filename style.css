@@ -6,11 +6,17 @@
     box-sizing:border-box;
 }
 
+html{
+    scroll-behavior:smooth;
+}
+
 body{
     min-height:100vh;
     background:#f7f5f2;
     color:#111;
     font-family:'Geist', Arial, sans-serif;
+    -webkit-font-smoothing:antialiased;
+    text-rendering:geometricPrecision;
 }
 
 .container{
@@ -20,45 +26,71 @@ body{
     align-items:center;
     justify-content:center;
     text-align:center;
-    padding:48px 24px;
+    padding:56px 24px;
 }
 
 .logo{
-    width:260px;
+    width:clamp(190px, 18vw, 280px);
     height:auto;
-    margin-bottom:112px;
+    margin-bottom:clamp(72px, 9vw, 128px);
     opacity:0;
-    animation:fadeUp 1s ease forwards;
+    animation:fadeUp 1s cubic-bezier(.22,.61,.36,1) forwards;
+}
+
+.manifesto{
+    opacity:0;
+    animation:fadeUp 1s cubic-bezier(.22,.61,.36,1) forwards;
+    animation-delay:.18s;
 }
 
 h1{
-    max-width:900px;
-    font-size:clamp(28px, 4.2vw, 64px);
+    max-width:980px;
+    font-size:clamp(30px, 4.4vw, 68px);
     line-height:1.18;
     font-weight:500;
-    letter-spacing:-0.045em;
+    letter-spacing:-0.052em;
     text-transform:uppercase;
-    opacity:0;
-    animation:fadeUp 1s ease forwards;
-    animation-delay:.22s;
 }
 
 .archive-link{
-    margin-top:72px;
+    position:relative;
+    display:inline-block;
+    margin-top:clamp(56px, 7vw, 88px);
     color:#111;
     text-decoration:none;
     font-size:12px;
-    letter-spacing:.32em;
     font-weight:500;
+    letter-spacing:.34em;
+    text-transform:uppercase;
     opacity:0;
-    animation:fadeUp 1s ease forwards;
-    animation-delay:.44s;
-    transition:opacity .25s ease, transform .25s ease;
+    animation:fadeUp 1s cubic-bezier(.22,.61,.36,1) forwards;
+    animation-delay:.36s;
+    transition:
+        letter-spacing .35s cubic-bezier(.22,.61,.36,1),
+        opacity .35s ease,
+        transform .35s cubic-bezier(.22,.61,.36,1);
+}
+
+.archive-link::after{
+    content:"";
+    position:absolute;
+    left:50%;
+    bottom:-13px;
+    width:0;
+    height:1px;
+    background:#111;
+    transform:translateX(-50%);
+    transition:width .35s cubic-bezier(.22,.61,.36,1);
 }
 
 .archive-link:hover{
-    opacity:.45;
-    transform:translateY(3px);
+    opacity:.68;
+    letter-spacing:.44em;
+    transform:translateY(2px);
+}
+
+.archive-link:hover::after{
+    width:100%;
 }
 
 .footer{
@@ -68,8 +100,8 @@ h1{
     letter-spacing:.32em;
     color:#777;
     opacity:0;
-    animation:fadeUp 1s ease forwards;
-    animation-delay:.58s;
+    animation:fadeUp 1s cubic-bezier(.22,.61,.36,1) forwards;
+    animation-delay:.52s;
 }
 
 @keyframes fadeUp{
@@ -84,6 +116,10 @@ h1{
 }
 
 @media (max-width:640px){
+    .container{
+        padding:44px 22px;
+    }
+
     .logo{
         width:190px;
         margin-bottom:72px;
@@ -91,10 +127,23 @@ h1{
 
     h1{
         font-size:32px;
-        line-height:1.16;
+        line-height:1.17;
+        letter-spacing:-0.04em;
     }
 
     .archive-link{
         margin-top:56px;
+        font-size:11px;
+        letter-spacing:.26em;
+    }
+
+    .archive-link:hover{
+        letter-spacing:.3em;
+    }
+
+    .footer{
+        margin-top:40px;
+        font-size:9px;
+        letter-spacing:.24em;
     }
 }
