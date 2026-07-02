@@ -26,13 +26,13 @@ body{
 .logo{
     width:260px;
     height:auto;
-    margin-bottom:120px;
+    margin-bottom:112px;
     opacity:0;
     animation:fadeUp 1s ease forwards;
 }
 
 h1{
-    max-width:880px;
+    max-width:900px;
     font-size:clamp(28px, 4.2vw, 64px);
     line-height:1.18;
     font-weight:500;
@@ -40,18 +40,36 @@ h1{
     text-transform:uppercase;
     opacity:0;
     animation:fadeUp 1s ease forwards;
-    animation-delay:.25s;
+    animation-delay:.22s;
+}
+
+.archive-link{
+    margin-top:72px;
+    color:#111;
+    text-decoration:none;
+    font-size:12px;
+    letter-spacing:.32em;
+    font-weight:500;
+    opacity:0;
+    animation:fadeUp 1s ease forwards;
+    animation-delay:.44s;
+    transition:opacity .25s ease, transform .25s ease;
+}
+
+.archive-link:hover{
+    opacity:.45;
+    transform:translateY(3px);
 }
 
 .footer{
-    margin-top:96px;
-    font-size:11px;
+    margin-top:44px;
+    font-size:10px;
     font-weight:400;
-    letter-spacing:.34em;
+    letter-spacing:.32em;
     color:#777;
     opacity:0;
     animation:fadeUp 1s ease forwards;
-    animation-delay:.5s;
+    animation-delay:.58s;
 }
 
 @keyframes fadeUp{
@@ -67,7 +85,7 @@ h1{
 
 @media (max-width:640px){
     .logo{
-        width:180px;
+        width:190px;
         margin-bottom:72px;
     }
 
@@ -76,7 +94,7 @@ h1{
         line-height:1.16;
     }
 
-    .footer{
-        margin-top:72px;
+    .archive-link{
+        margin-top:56px;
     }
 }
